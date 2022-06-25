@@ -184,8 +184,12 @@ client.on('message', async msg => {
             const quotedMsg = await msg.getQuotedMessage();
             client.interface.openChatWindowAt(quotedMsg.id._serialized);
         }
-    } else if (msg.body === '!buttons') {
-        let button = new Buttons('Button body',[{body:'bt1'},{body:'bt2'},{body:'bt3'}],'title','footer');
+    } else if (msg.body === 'Oi') {
+        let button = new Buttons('Olá, eu sou o Jarvis seu robo de autoatendimento, clique em uma das opções abaixo para inciar o seu atendimento',[
+            {body:'Quero fazer um Orçamento'},
+            {body:'Qual Horario de atendimento'},
+            {body:'Em quais regiões voces atendem'}],
+            'Robo de Autoatendimento','Este e um robo de atendimento');
         client.sendMessage(msg.from, button);
     } else if (msg.body === '!list') {
         let sections = [{title:'sectionTitle',rows:[{title:'ListItem1', description: 'desc'},{title:'ListItem2'}]}];
